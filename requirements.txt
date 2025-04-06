@@ -2,3 +2,4 @@ Flask
 pandas
 matplotlib
 flask-cors
+gunicorn
