@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Track Your Food</h3>
+<form method="post">
+    <div class="mb-3">
+        <input type="text" name="food_name" id="food_name" class="form-control" placeholder="Enter food item..." autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <input type="number" name="quantity" step="0.1" class="form-control" placeholder="Quantity">
+    </div>
+    <div class="mb-3">
+        <select name="unit" class="form-select">
+            <option value="gram">gram</option>
+            <option value="cup">cup</option>
+            <option value="tbsp">tbsp</option>
+        </select>
+    </div>
+    <button class="btn btn-success">Calculate</button>
+</form>
+
+{% if result %}
+<div class="mt-4">
+    <h5>Results</h5>
+    <p><strong>Calories:</strong> {{ result.calories }} kcal</p>
+    <p><strong>Protein:</strong> {{ result.protein }} g</p>
+    <p><strong>Carbs:</strong> {{ result.carbs }} g</p>
+    <p><strong>Fat:</strong> {{ result.fat }} g</p>
+</div>
+{% endif %}
+
+<script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+{% endblock %}

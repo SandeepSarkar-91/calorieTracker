@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Banana",
+        "calories": 89,
+        "protein": 1.1,
+        "carbs": 22.8,
+        "fat": 0.3,
+        "units": { "gram": 1, "cup": 2.5, "tbsp": 0.5 }
+    },
+    {
+        "name": "Egg",
+        "calories": 68,
+        "protein": 6.3,
+        "carbs": 0.6,
+        "fat": 4.8,
+        "units": { "gram": 1, "cup": 8, "tbsp": 1.5 }
+    }
+]
