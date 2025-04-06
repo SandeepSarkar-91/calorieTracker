@@ -6,8 +6,8 @@ import csv
 app = Flask(__name__)
 
 # --- Placeholder Data Loading ---
-FOOD_DATA = pd.read_csv('data/food_data.csv', delimiter=',')
-WORKOUT_DATA = pd.read_csv('data/workout_data.csv', delimiter=',')
+FOOD_DATA = pd.read_csv('data/food_data.csv')
+WORKOUT_DATA = pd.read_csv('data/workout_data.csv')
 
 # --- Placeholder API Functions (Simulating API calls) ---
 def fetch_food_data(query):
@@ -124,6 +124,15 @@ def autocomplete_workout():
     query = request.args.get('term')
     workout_suggestions = fetch_workout_data(query) # Use placeholder API
     return jsonify(workout_suggestions)
+
+# --- New Routes for About and Contact ---
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
 
 
 if __name__ == '__main__':
