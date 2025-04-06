@@ -1,0 +1,239 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+    margin: 0;
+    padding: 0;
+    background-color: #e8f5e9; /* Very light green background */
+    color: #333;
+    background-image: url('../img/wellness-bg.jpg'); /* Add background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center;
+    background-attachment: fixed; /* Fixed background for parallax effect */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack header, nav, container, footer vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px; /* Limit container width on larger screens */
+    margin: 20px auto; /* Center container with some top margin */
+    overflow: hidden;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* White container with slight transparency */
+    border-radius: 10px; /* Rounded corners for container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex: 1; /* Allow container to grow and take available space */
+}
+
+header {
+    background: rgba(92, 184, 92, 0.9); /* Semi-transparent green header */
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 60px;
+    border-bottom: #388e3c 3px solid;
+    text-align: center;
+    border-radius: 10px 10px 0 0; /* Rounded top corners for header */
+    margin-bottom: 20px; /* Space below header */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em; /* Larger header font */
+    font-weight: 600; /* Semi-bold font weight */
+    letter-spacing: 1px; /* Slight letter spacing */
+}
+
+nav {
+    background: rgba(56, 142, 60, 0.9); /* Semi-transparent darker green nav */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners for nav */
+    margin-bottom: 20px; /* Space below nav */
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+    padding: 0 25px 0 25px; /* Increased padding for nav links */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3em; /* Larger nav link font */
+    font-weight: 500; /* Medium font weight */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+nav a:hover {
+    color: #f0f0f0; /* Lighter hover color */
+}
+
+section {
+    padding: 30px; /* Increased section padding */
+    background: rgba(255, 255, 255, 0.85); /* Slightly more transparent section background */
+    border-radius: 8px; /* Rounded corners for sections */
+    margin-bottom: 25px; /* Increased margin between sections */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Lighter shadow for sections */
+}
+
+section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+article {
+    padding: 20px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+aside {
+    padding: 15px;
+    background: #388e3c;
+    color: white;
+    margin-top: 10px;
+}
+
+footer {
+    background: rgba(92, 184, 92, 0.9); /* Semi-transparent green footer */
+    color: white;
+    text-align: center;
+    padding: 20px; /* Increased footer padding */
+    margin-top: 30px; /* Increased margin above footer */
+    border-top: #388e3c 3px solid;
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners for footer */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Increased form group margin */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px; /* Increased label margin */
+    font-weight: 500; /* Medium font weight for labels */
+    color: #555; /* Slightly darker label color */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group button {
+    padding: 12px; /* Increased input padding */
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* More rounded input corners */
+    margin-bottom: 10px; /* Increased input margin */
+    font-size: 1em; /* Input font size */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #5cb85c; /* Green border on focus */
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5); /* Green shadow on focus */
+}
+
+
+.form-group button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em; /* Button font size */
+    font-weight: 500; /* Medium font weight for button text */
+    transition: background-color 0.3s ease; /* Smooth button background color transition */
+}
+
+.form-group button:hover {
+    background-color: #388e3c;
+}
+
+.calculation-result {
+    margin-top: 30px; /* Increased result margin */
+    padding: 25px; /* Increased result padding */
+    background-color: #f0fdf0; /* Very light green result background */
+    border: 1px solid #c3e6c3;
+    border-radius: 8px; /* Rounded corners for result box */
+    box-shadow: inset 0 0 5px rgba(92, 184, 92, 0.2); /* Inset shadow for result box */
+}
+
+.calculation-result h2 {
+    margin-top: 0;
+    color: #388e3c;
+    font-size: 1.8em; /* Larger result heading */
+    margin-bottom: 15px; /* Spacing below result heading */
+}
+
+.calculation-result p {
+    margin-bottom: 10px; /* Spacing below result paragraphs */
+    line-height: 1.6; /* Improved line height for readability */
+}
+
+.calculation-result strong {
+    font-weight: 600; /* Bold important text in results */
+    color: #444; /* Slightly darker text for emphasis */
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 6px 6px; /* Rounded bottom corners for autocomplete */
+    overflow: hidden; /* Ensure rounded corners are respected */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for autocomplete dropdown */
+}
+
+.autocomplete-items div {
+    padding: 12px; /* Increased autocomplete item padding */
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+    font-size: 1em; /* Autocomplete item font size */
+}
+
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    background-color: #5cb85c !important; /* Green active autocomplete item */
+    color: #ffffff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Wider container on smaller screens */
+        padding: 20px;
+        margin: 15px auto;
+    }
+    header h1 {
+        font-size: 2em; /* Smaller header font on smaller screens */
+    }
+    nav li {
+        padding: 0 15px 0 15px; /* Reduced nav link padding on smaller screens */
+    }
+    nav a {
+        font-size: 1.1em; /* Smaller nav link font on smaller screens */
+    }
+    section {
+        padding: 20px; /* Reduced section padding on smaller screens */
+        margin-bottom: 20px;
+    }
+}
