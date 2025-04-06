@@ -1,0 +1,4 @@
+.idea/             # IntelliJ IDEA project files
+.vscode/           # VS Code project files
+.project          # Eclipse project files
+.settings/         # Eclipse settings
