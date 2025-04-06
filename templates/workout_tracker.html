@@ -1,28 +1,45 @@
-{% extends "base.html" %}
+{% extends 'layout.html' %}
+
+{% block title %}Workout Calorie Tracker{% endblock %}
+
 {% block content %}
-<h3>Track Your Workout</h3>
-<form method="post">
-    <div class="mb-3">
-        <input type="text" name="workout_name" id="workout_name" class="form-control" placeholder="Enter workout..." autocomplete="off">
-    </div>
-    <div class="mb-3">
-        <input type="number" name="reps" class="form-control" placeholder="Reps per set">
-    </div>
-    <div class="mb-3">
-        <input type="number" name="sets" class="form-control" placeholder="Number of sets">
-    </div>
-    <button class="btn btn-primary">Estimate Calories Burned</button>
-</form>
+    <section>
+        <h2>Workout Calorie Tracker</h2>
+        <form method="post" action="/workout_tracker">
+            <div class="form-group autocomplete" style="width:300px;">
+                <label for="workout_item">Workout:</label>
+                <input type="text" id="workout_item" name="workout_item" placeholder="Search workout..." required>
+            </div>
+            <div class="form-group">
+                <label for="sets">Sets:</label>
+                <input type="number" id="sets" name="sets" value="1" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="reps">Repetitions/Duration (mins):</label>
+                <input type="number" id="reps" name="reps" value="1" min="1" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Calculate Calories Burned</button>
+            </div>
+        </form>
 
-{% if result %}
-<div class="mt-4">
-    <h5>Estimated Calories Burned: {{ result }} kcal</h5>
-</div>
-{% endif %}
+        {% if calories_burned is not none %}
+        <div class="calculation-result">
+            <h2>Calculation Result</h2>
+            <p><strong>Workout:</strong> {{ workout_item }}</p>
+            <p><strong>Sets:</strong> {{ sets }}</p>
+            <p><strong>Reps/Duration:</strong> {{ reps }}</p>
+            <p><strong>Approximate Calories Burned:</strong> {{ calories_burned }}</p>
 
-<div class="mb-3">
-    <a href="{{ url_for('home') }}" class="btn btn-secondary">← Back to Main Menu</a>
-</div>
-
-<script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+            <form method="post" action="/download_csv/workout">
+                <input type="hidden" name="workout_item" value="{{ workout_item }}">
+                <input type="hidden" name="sets" value="{{ sets }}">
+                <input type="hidden" name="reps" value="{{ reps }}">
+                <input type="hidden" name="calories_burned" value="{{ calories_burned }}">
+                <button type="submit">Download CSV</button>
+            </form>
+        </div>
+        {% endif %}
+        <p><a href="{{ url_for('index') }}">Return to Main Menu</a></p>
+    </section>
 {% endblock %}

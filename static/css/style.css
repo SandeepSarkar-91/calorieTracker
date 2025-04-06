@@ -1,0 +1,107 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f5e9;
+    color: #333;
+    background-image: url('../img/wellness-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+    padding: 30px;
+/*    background-color: rgba(255, 255, 255, 0.9); */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+/* --- Removed Header and Footer Styles --- */
+
+.button-nav {
+    text-align: center;
+    padding: 20px 0; /* Increased padding for better spacing */
+    margin-bottom: 20px; /* Space below nav */
+}
+
+.button-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: inline-block; /* Make ul inline-block to center buttons */
+}
+
+.button-nav li {
+    display: inline;
+    margin: 0 10px; /* Spacing between buttons */
+}
+
+.button-nav a {
+    display: inline-block; /* Make links block-level for button appearance */
+    color: #333; /* Dark text color for buttons */
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 12px 25px; /* Button padding */
+    border: 2px solid #5cb85c; /* Green border */
+    border-radius: 8px; /* Rounded button corners */
+    background-color: #f0fdf0; /* Light green button background */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.button-nav a:hover,
+.button-nav a:focus {
+    background-color: #5cb85c; /* Green background on hover/focus */
+    color: white; /* White text on hover/focus */
+    outline: none; /* Remove default focus outline */
+}
+
+/* --- Rest of the CSS (section, form, etc.) remains mostly the same --- */
+
+section {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* ... (rest of your style.css - form, calculation-result, autocomplete, responsive) ... */
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+        margin: 15px auto;
+    }
+    .button-nav {
+        padding: 15px 0; /* Adjust nav padding for smaller screens */
+    }
+    .button-nav li {
+        margin: 0 5px; /* Adjust button spacing for smaller screens */
+    }
+    .button-nav a {
+        padding: 10px 20px; /* Adjust button padding for smaller screens */
+        font-size: 1em; /* Adjust button font size for smaller screens */
+    }
+    section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}
