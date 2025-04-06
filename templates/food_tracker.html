@@ -1,36 +1,56 @@
-{% extends "base.html" %}
+{% extends 'layout.html' %}
+
+{% block title %}Food Calorie Tracker{% endblock %}
+
 {% block content %}
-<h3>Track Your Food</h3>
-<form method="post">
-    <div class="mb-3">
-        <input type="text" name="food_name" id="food_name" class="form-control" placeholder="Enter food item..." autocomplete="on">
-    </div>
-    <div class="mb-3">
-        <input type="number" name="quantity" step="0.1" class="form-control" placeholder="Quantity">
-    </div>
-    <div class="mb-3">
-        <select name="unit" class="form-select">
-            <option value="gram">gram</option>
-            <option value="cup">cup</option>
-            <option value="tbsp">tbsp</option>
-        </select>
-    </div>
-    <button class="btn btn-success">Calculate</button>
-</form>
+    <section>
+        <h2>Food Calorie Tracker</h2>
+        <form method="post" action="/food_tracker">
+            <div class="form-group autocomplete" style="width:300px;">
+                <label for="food_item">Food Item:</label>
+                <input id="food_item" type="text" name="food_item" placeholder="Search food..." required>
+            </div>
+            <div class="form-group">
+                <label for="measure">Measure:</label>
+                <select id="measure" name="measure">
+                    <option value="grams">Grams</option>
+                    <option value="ml">ml</option>
+                    <option value="tablespoon">Tablespoon</option>
+                    <option value="cup">Cup</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Calculate Calories</button>
+            </div>
+        </form>
 
-{% if result %}
-<div class="mt-4">
-    <h5>Results</h5>
-    <p><strong>Calories:</strong> {{ result.calories }} kcal</p>
-    <p><strong>Protein:</strong> {{ result.protein }} g</p>
-    <p><strong>Carbs:</strong> {{ result.carbs }} g</p>
-    <p><strong>Fat:</strong> {{ result.fat }} g</p>
-</div>
-{% endif %}
+        {% if calculation %}
+        <div class="calculation-result">
+            <h2>Calculation Result</h2>
+            <p><strong>Food Item:</strong> {{ food_item }}</p>
+            <p><strong>Measure:</strong> {{ measure }}</p>
+            <p><strong>Quantity:</strong> {{ quantity }}</p>
+            <p><strong>Approximate Calories:</strong> {{ calculation.calories }}</p>
+            <p><strong>Approximate Protein:</strong> {{ calculation.protein }}g</p>
+            <p><strong>Approximate Carbs:</strong> {{ calculation.carbs }}g</p>
+            <p><strong>Approximate Fat:</strong> {{ calculation.fat }}g</p>
 
-<div class="mb-3">
-    <a href="{{ url_for('home') }}" class="btn btn-secondary">← Back to Main Menu</a>
-</div>
-
-<script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+            <form method="post" action="/download_csv/food">
+                <input type="hidden" name="food_item" value="{{ food_item }}">
+                <input type="hidden" name="measure" value="{{ measure }}">
+                <input type="hidden" name="quantity" value="{{ quantity }}">
+                <input type="hidden" name="calories" value="{{ calculation.calories }}">
+                <input type="hidden" name="protein" value="{{ calculation.protein }}">
+                <input type="hidden" name="carbs" value="{{ calculation.carbs }}">
+                <input type="hidden" name="fat" value="{{ calculation.fat }}">
+                <button type="submit">Download CSV</button>
+            </form>
+        </div>
+        {% endif %}
+        <p><a href="{{ url_for('index') }}">Return to Main Menu</a></p>
+    </section>
 {% endblock %}

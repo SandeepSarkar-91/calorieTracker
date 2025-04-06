@@ -1,1 +1,4 @@
-Flask==2.2.5
+Flask
+pandas
+matplotlib
+flask-cors
